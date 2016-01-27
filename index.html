@@ -10,16 +10,23 @@
     <script type="text/jsx">
       var App = React.createClass({
         render: function () {
+          var props = {
+            defaultValue: '20',
+            max: '100',
+            min: '1',
+            name: 'numberInput',
+            type: 'number'
+          };
           return (
             <div>
-              <input id="numInput" type="number" min="1" max="100" value="20" />
-              <input id="textInput" type="text" value="hello there" />
+              <input id="numInput" {...props} />
+              <input id="textInput" type="text" value={this.props.text} />
             </div>
           );
         }
       });
       React.render(
-        <App />,
+        <App number="20" text="hello world" />,
         document.getElementById('content')
       );
     </script>
